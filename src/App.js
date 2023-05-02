@@ -1,8 +1,10 @@
-import Garagem from "./Componentes/Garagem";
+import { useState } from "react";
+import Garagem from "./Componentes/garagem/Garagem";
 import { GlobalStyled } from "./globalStyled";
 
 export default function App() {
-  const nome = "Turma";
+  // const nome = "Turma";
+  const [nome, setNome]= useState("Turma")
   function apresentaGaragem() {
     alert(`Boas vindas à garagem de ${nome}`);
   }
@@ -11,7 +13,7 @@ export default function App() {
     <div className="App">
       <GlobalStyled />
 
-      <Garagem nome={nome} mensagemAprentacao={apresentaGaragem} />
+      <Garagem nome={nome} setNome={setNome} mensagemAprentacao={apresentaGaragem} />
     </div>
   );
 }
