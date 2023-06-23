@@ -1,6 +1,12 @@
 import { CarroContainer } from './styles'
 
-export function Carro({ modelo, cor, ano, flex, adicionadoPor }) {
+export function Carro({ modelo, cor, ano, flex, adicionadoPor, setAutomovel, carro }) {
+  
+  function mudarCarro(){
+    setAutomovel(carro)
+
+  }
+  
   return (
     <CarroContainer>
       <h2>{modelo}</h2>
@@ -10,6 +16,7 @@ export function Carro({ modelo, cor, ano, flex, adicionadoPor }) {
         <li>Flex: {flex ? 'Sim' : 'Não'}</li>
         <li>Adicionado: {adicionadoPor}</li>
       </ul>
+      <button onClick={mudarCarro}>Mudar Carro</button>
     </CarroContainer>
   )
 }
