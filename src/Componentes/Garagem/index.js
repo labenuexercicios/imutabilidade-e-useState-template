@@ -1,21 +1,30 @@
-import { Carro } from '../Carro'
-import { Botao, Estacionamento, GaragemContainer } from './styles'
+import { Carro } from "../Carro";
+import { Botao, Estacionamento, GaragemContainer } from "./styles";
 
-export function Garagem({ nome }) {
+export function Garagem(props) {
+  const { automovel, nomeGaragem, setNome, setAutomovel, carro } = props;
+  const { modelo, cor, ano, adicionadoPor, flex } = automovel;
+
+  const alterarNome = () => {
+    setNome("Easley");
+  };
+
   return (
     <GaragemContainer>
-      <h1>Garagem da {nome}</h1>
-      <Botao>Muda nome</Botao>
+      <h1>Garagem da {nomeGaragem}</h1>
+      <Botao onClick={alterarNome}>Muda nome</Botao>
 
       <Estacionamento>
         <Carro
-          modelo="Corsa"
-          cor="branco"
-          ano={2020}
-          adicionadoPor="Labenu"
-          flex
+          modelo={modelo}
+          cor={cor}
+          ano={ano}
+          adicionadoPor={adicionadoPor}
+          flex={flex}
+          setAutomovel={setAutomovel}
+          carro={carro}
         />
       </Estacionamento>
     </GaragemContainer>
-  )
+  );
 }
